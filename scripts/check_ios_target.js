@@ -18,12 +18,11 @@ module.exports = function (context) {
 }
 
 function getConfigParser(context, config) {
-	var ConfigParser;
-	if (semver.lt(context.opts.cordova.version, '5.4.0')) {
-	    ConfigParser = context.requireCordovaModule('cordova-lib/src/ConfigParser/ConfigParser');
-	} else {
-	    ConfigParser = context.requireCordovaModule('cordova-common/src/ConfigParser/ConfigParser');
-	}
-
+	var ConfigParser = require('cordova-common').ConfigParser;
+// 	if (semver.lt(context.opts.cordova.version, '5.4.0')) {
+// 	    ConfigParser = require('cordova-lib').ConfigParser;
+// 	} else {
+// 	    ConfigParser = 
+// 	}
 	return new ConfigParser(config);
 }
